@@ -10,17 +10,17 @@ jobs:       #two jobs - build and download
         uses : actions/checkout@v3
 
       - name : build project
-        run : /
+        run : |
           mkdir -p output
           echo "Hello world" > output/artifact.txt
           ls -l output #Debugging: List contents
           cat output/artifact.txt #Debugging : show file content
 
       - name : Upload artifact
-        uses : action/upload-artifact@v4
+        uses : actions/upload-artifact@v4
         with : 
-        name : my-artifact
-        path : output/
+          name : my-artifact
+          path : output/
 
 
   download:
